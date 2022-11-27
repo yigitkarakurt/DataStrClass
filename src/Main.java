@@ -44,7 +44,7 @@ public class Main {
         list.addHead2(6);
         list.addHead2(5);
         list.addHead2(4);
-        list.delete(6);
+        list.delete(4);
         list.display();
 
 
