@@ -8,7 +8,6 @@ public class LinkedList<T extends Comparable> {
         return new Node<T>(val);
     }
 
-
     public void addHeadVize(T val){
         Node<T> newNode = new Node<>(val);
         Node<T> iterator = head;
@@ -185,13 +184,14 @@ public class LinkedList<T extends Comparable> {
 
     public int search(T val) {
         int nodeCounter = 0;
-        if ( head == null)
+        if (head == null)
             return nodeCounter;
         Node<T> iterator = head;
-        while( iterator!=null){
-            nodeCounter++;
-            if(iterator.value.compareTo(val)==0)
+        while(iterator!=null){
+            if(iterator.value.compareTo(val)==0){
+                nodeCounter++;
                 return nodeCounter;
+            }
             iterator= iterator.next;
         }
         return nodeCounter;
@@ -235,8 +235,6 @@ public class LinkedList<T extends Comparable> {
 
         }
     }
-
-
 
     public void removeDuplicatesFromArrayList(List<Integer> arr){
         for (int i = 0; i < arr.size(); i++) {
@@ -365,4 +363,88 @@ public class LinkedList<T extends Comparable> {
         }
 
     }
+
+
+    public void huffmanHW() throws FileNotFoundException {
+
+        //Read the file
+        Scanner scanner = new Scanner(new File("letter.txt"));
+        String text = scanner.nextLine();
+        Node<T> iterator = head;
+
+        // Metnin karakterlerini sayar
+        for (char ch1 : text.toCharArray()) {
+            iterator = head;
+            boolean found = false;
+
+            //Boşlukları saymıyor
+            if (ch1 != ' ') {
+
+                while (iterator != null) {
+                    if (iterator.ch == ch1) {
+                        iterator.freq++;
+                        found = true;
+                        break;
+                    }
+                    iterator = iterator.next;
+                }
+
+                //Eğer o harf ilk defa okunuyorsa yeni node oluşturuyor
+                if (!found) {
+                    Node<T> newNode = new Node<>(1, ch1);
+                    Node<T> iterator1 = head;
+
+                    if (head==null){
+                        head = newNode;
+                    }else{
+                        while(iterator1.next != null){
+                            iterator1 = iterator1.next;
+                        }
+                        iterator1.next = newNode;
+                    }
+                }
+            }
+        }
+
+
+        //Sort by frequency
+
+        // If the list is empty, there's nothing to do.
+        if (head== null){
+            return;
+        }
+
+        //Finding the node that we want
+        iterator= head;
+        Node<T> prev = head;
+        int size = this.size();
+
+        for (int i = 0; i < size; i++) {
+            int maxFreq = head.freq;
+            iterator = head;
+            prev = head;
+
+            while (iterator != null) {
+                int a = iterator.freq;
+                if (a > maxFreq){
+                    prev.next = iterator.next;
+                    iterator.next = head;
+                    head = iterator;
+                }
+                prev = iterator;
+                iterator = iterator.next;
+            }
+        }
+
+        //Prints linked list
+        iterator = head;
+        while (iterator != null) {
+            System.out.println(iterator.ch + " : " + iterator.freq);
+            iterator = iterator.next;
+
+        }
+    }
+
+
+
 }

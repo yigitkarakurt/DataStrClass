@@ -24,28 +24,9 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        /*
-        Stack stk = new Stack(5);
-
-        stk.push(1);
-        stk.push(2);
-        stk.push(3);
-        stk.push(4);
-        stk.push(5);
-        int a = stk.count();
-
-
-        System.out.println(a);
-        stk.display();
-                 */
         LinkedList<Integer> list = new LinkedList<>();
 
-
-        list.addHead2(6);
-        list.addHead2(5);
-        list.addHead2(4);
-        list.delete(4);
-        list.display();
+        list.huffmanHW();
 
 
 
