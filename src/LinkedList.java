@@ -415,18 +415,21 @@ public class LinkedList<T extends Comparable> {
         }
 
         //Finding the node that we want
+
+        //Higher to lower
+        /*
         iterator= head;
         Node<T> prev = head;
         int size = this.size();
 
         for (int i = 0; i < size; i++) {
-            int maxFreq = head.freq;
+            int minFreq = head.freq;
             iterator = head;
             prev = head;
 
             while (iterator != null) {
                 int a = iterator.freq;
-                if (a > maxFreq){
+                if (a < minFreq){
                     prev.next = iterator.next;
                     iterator.next = head;
                     head = iterator;
@@ -435,6 +438,34 @@ public class LinkedList<T extends Comparable> {
                 iterator = iterator.next;
             }
         }
+
+        */
+
+        //Lower to higher
+        iterator = head;
+        Node<T> iterator2 = head;
+        int tempFreq;
+        char tempCh;
+
+        while(iterator!=null){
+            iterator2 = iterator.next;
+            while(iterator2!=null){
+                if (iterator.freq > iterator2.freq){
+                    //freq transfer
+                    tempFreq = iterator.freq;
+                    iterator.freq = iterator2.freq;
+                    iterator2.freq = tempFreq;
+
+                    //char transfer
+                    tempCh = iterator.ch;
+                    iterator.ch = iterator2.ch;
+                    iterator2.ch = tempCh;
+                }
+                iterator2 = iterator2.next;
+            }
+            iterator = iterator.next;
+        }
+
 
         //Prints linked list
         iterator = head;

@@ -1,6 +1,72 @@
 public class BinarySearchTree<T extends Comparable> {
     private TNode<T> root;
 
+
+    //Deneme Kodlarım
+
+    public void inOrderDeneme(){
+        inOrderDeneme(root);
+        System.out.println();
+    }
+    public void inOrderDeneme(TNode<T> currentRoot){
+        if (currentRoot != null) {
+            inOrderDeneme(currentRoot.left);
+            System.out.println(currentRoot.value);
+            inOrderDeneme(currentRoot.right);
+        }
+    }
+
+    public boolean searchDeneme(T val){
+        if (root == null){
+            return false;
+        }else{
+            TNode<T> iterator = root;
+            while(iterator != null){
+                if (val.compareTo(iterator.value) == 0){
+                    return true;
+                }else if (val.compareTo(iterator.value) == 1){
+                    iterator = iterator.right;
+                }else if (val.compareTo(iterator.value) == -1){
+                    iterator = iterator.left;
+                }
+            }
+            return false;
+        }
+
+
+
+
+    }
+
+    public void insertDeneme(T val){
+        if (root==null){
+            root = new TNode<>(val);
+        }else{
+            TNode<T> iterator = root;
+            while(iterator!=null){
+                if (iterator.compareTo(val) == 1){
+                    if (iterator.left == null){
+                        iterator.left = new TNode<>(val);
+                        return;
+                    }else{
+                        iterator = iterator.left;
+                    }
+                }else{
+                    if (iterator.right == null){
+                        iterator.right = new TNode<>(val);
+                        return;
+                    }else{
+                        iterator = iterator.right;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    //Hocanın Kodları
+
     public void insert(T val){
         if(root==null){
             root=new TNode<T>(val);
