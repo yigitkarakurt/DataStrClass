@@ -9,10 +9,34 @@ public class BinarySearchTree<T extends Comparable> {
         System.out.println();
     }
     public void inOrderDeneme(TNode<T> currentRoot){
-        if (currentRoot != null) {
+        if (currentRoot != null){
             inOrderDeneme(currentRoot.left);
-            System.out.println(currentRoot.value);
+            System.out.println(currentRoot.value + " ");
             inOrderDeneme(currentRoot.right);
+        }
+    }
+
+    public void preorderDeneme(){
+        preorderDeneme(root);
+        System.out.println();
+    }
+    public void preorderDeneme(TNode<T> currentRoot){
+        if (currentRoot != null){
+            System.out.println(currentRoot.value + " ");
+            preorderDeneme(currentRoot.left);
+            preorderDeneme(currentRoot.right);
+        }
+    }
+
+    public void postorderDeneme(){
+        postorderDeneme(root);
+        System.out.println("");
+    }
+    public void postorderDeneme(TNode<T> currentRoot){
+        if (currentRoot != null){
+            postorderDeneme(currentRoot.left);
+            postorderDeneme(currentRoot.right);
+            System.out.println(currentRoot.value + " ");
         }
     }
 
@@ -62,8 +86,6 @@ public class BinarySearchTree<T extends Comparable> {
             }
         }
     }
-
-
 
     //Hocanın Kodları
 

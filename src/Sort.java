@@ -13,7 +13,7 @@ public class Sort {
         //quickSortChar(arrayC,0, arrayC.length-1);
 
 
-        insertionSort(arrayI);
+        selectionSort(arrayI);
 
         for(int number : arrayI){
             System.out.print(number + " ");
@@ -85,12 +85,9 @@ public class Sort {
 
     public static void bubbleSort(int[] arr){
 
-        int n = arr.length;
-
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                if (arr[j] > arr[j + 1]){
-
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = 0; j < arr.length-1-i; j++) {
+                if (arr[j] > arr[j+1]){
                     int temp = arr[j];
                     arr[j] = arr[j+1];
                     arr[j+1] = temp;
@@ -100,19 +97,41 @@ public class Sort {
 
     }
 
+    public static void selectionSort(int[] arr){
+
+        for (int i = 0; i < arr.length; i++) {
+
+            int min = arr[i];
+            int minPlace = i;
+
+            for (int j = i+1; j < arr.length; j++) {
+                if (arr[j] < min){
+                    min = arr[j];
+                    minPlace = j;
+                }
+
+            }
+            int temp = arr[i];
+            arr[i] = arr[minPlace];
+            arr[minPlace] = temp;
+
+        }
+
+    }
+
     public static void insertionSort(int[] arr){
 
         for (int i = 1; i < arr.length; i++) {
 
-            int current = arr[i];
+            int key = arr[i];
             int j = i - 1;
 
-            while(j >= 0 && arr[j] > current){
+            while(j >= 0 && arr[j] > key){
                 arr[j+1] = arr[j];
                 j--;
 
             }
-            arr[j+1] = current;
+            arr[j+1] = key;
         }
     }
 
