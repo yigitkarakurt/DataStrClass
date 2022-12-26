@@ -107,6 +107,36 @@ public class LinkedList<T extends Comparable> {
         }
     }
 
+    public void selectionSort(){
+        if (head == null){
+            return;
+        }
+
+        Node<T> iterator = head,iterator2 = null;
+
+
+        while(iterator != null){
+            iterator2 = iterator.next;
+
+            while(iterator2 != null){
+
+                if ((int)iterator2.value < (int)iterator.value){
+
+                    T temp = iterator.value;
+                    iterator.value = iterator2.value;
+                    iterator2.value = temp;
+
+
+                }
+
+
+                iterator2 = iterator2.next;
+            }
+
+            iterator = iterator.next;
+        }
+    }
+
     public void addFront(T val) {
         Node<T> newNode = createNode(val);
         newNode.next = head;

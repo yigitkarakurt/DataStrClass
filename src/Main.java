@@ -25,15 +25,30 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
 
+        LinkedList<Integer> linkedList = new LinkedList<>();
+        linkedList.addEndVize2(2);
+        linkedList.addEndVize2(15);
+        linkedList.addEndVize2(6);
+        linkedList.addEndVize2(4);
+        linkedList.addEndVize2(1);
+        linkedList.addEndVize2(66);
+
+        linkedList.selectionSort();
+        linkedList.display();
+
+
+        /*
         BinarySearchTree<Integer> tree = new BinarySearchTree<>();
         Graph<Integer> graph = new Graph<>();
 
-        tree.insertDeneme(5);
-        tree.insertDeneme(4);
-        tree.insertDeneme(8);
-        tree.insertDeneme(7);
-        tree.insertDeneme(13);
-        tree.insertDeneme(1);
+        tree.insert(5);
+        tree.insert(4);
+        tree.insert(8);
+        tree.insert(7);
+        tree.insert(13);
+        tree.insert(1);
+
+        System.out.println(tree.findMin());
 
         graph.addVertex(1);
         graph.addVertex(2);
@@ -46,7 +61,9 @@ public class Main {
         graph.addEdge(3,5);
         graph.addEdge(4,5);
         graph.addEdge(2,3);
-        graph.display();
+        //graph.display();
+
+         */
 
 
 

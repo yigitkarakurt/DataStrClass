@@ -169,6 +169,59 @@ public class BinarySearchTree<T extends Comparable> {
         }
     }
 
+    public int findMin() {
+        int min = 0;
+        if (root != null) {
+            TNode<T> iterator = root;
+            while (iterator.left != null) {
+                iterator = iterator.left;
+            }
+            min = (int) iterator.value;
+        }
+        return min;
+
+    }
+
+    public int findMax(){
+        int max = 0;
+        if (root != null){
+            TNode<T> iterator = root;
+            while(iterator.right != null){
+                iterator = iterator.right;
+            }
+            max = (int) iterator.value;
+        }
+        return max;
+    }
+
+    public void swapMinAndMax(){
+        T min,max ;
+
+
+        if (root != null) {
+            TNode<T> iterator = root;
+            while (iterator.left != null) {
+                iterator = iterator.left;
+            }
+            min = iterator.value;
+
+            TNode<T> iterator2 = root;
+            while(iterator2.right != null){
+                iterator2 = iterator2.right;
+            }
+            max = iterator2.value;
+
+            iterator.value = max;
+            iterator2.value = min;
+        }
+
+
+
+
+
+
+    }
+
 
 
 

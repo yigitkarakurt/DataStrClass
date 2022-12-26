@@ -1,4 +1,4 @@
-public class QuickSort {
+public class Sort {
 
 
 
@@ -6,15 +6,17 @@ public class QuickSort {
     public static void main(String[] args) {
 
         int[] arrayI = {1,2,5,6,8,2,3,8878,453,11};
-        quickSortInteger(arrayI,0, arrayI.length-1);
-        for(int number : arrayI){
-            System.out.print(number + " ");
-        }
+        //quickSortInteger(arrayI,0, arrayI.length-1);
+
         System.out.println(" ");
         char[] arrayC = {'a','f','c','d'};
-        quickSortChar(arrayC,0, arrayC.length-1);
-        for (char ch : arrayC){
-            System.out.print(ch + " ");
+        //quickSortChar(arrayC,0, arrayC.length-1);
+
+
+        insertionSort(arrayI);
+
+        for(int number : arrayI){
+            System.out.print(number + " ");
         }
     }
 
@@ -80,4 +82,41 @@ public class QuickSort {
 
         return i+1;
     }
+
+    public static void bubbleSort(int[] arr){
+
+        int n = arr.length;
+
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]){
+
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+
+    }
+
+    public static void insertionSort(int[] arr){
+
+        for (int i = 1; i < arr.length; i++) {
+
+            int current = arr[i];
+            int j = i - 1;
+
+            while(j >= 0 && arr[j] > current){
+                arr[j+1] = arr[j];
+                j--;
+
+            }
+            arr[j+1] = current;
+        }
+    }
+
+
+
+
 }
