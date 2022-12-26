@@ -107,6 +107,24 @@ public class LinkedList<T extends Comparable> {
         }
     }
 
+    public void bubbleSort() {
+        boolean swapped = true;
+        while (swapped) {
+            swapped = false;
+            Node<T> current = head;
+            while (current.next != null) {
+                if (current.value.compareTo(current.next.value) > 0) {
+                    // Elemanları yer değiştirin
+                    T temp = current.value;
+                    current.value = current.next.value;
+                    current.next.value = temp;
+                    swapped = true;
+                }
+                current = current.next;
+            }
+        }
+    }
+
     public void selectionSort(){
         if (head == null){
             return;
