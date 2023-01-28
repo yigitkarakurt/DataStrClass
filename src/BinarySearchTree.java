@@ -4,10 +4,7 @@ public class BinarySearchTree<T extends Comparable> {
 
     //Deneme Kodlarım
 
-    public void inOrderDeneme(){
-        inOrderDeneme(root);
-        System.out.println();
-    }
+    
     public void inOrderDeneme(TNode<T> currentRoot){
         if (currentRoot != null) {
             inOrderDeneme(currentRoot.left);
